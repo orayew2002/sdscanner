@@ -7,7 +7,6 @@ import (
 	"time"
 )
 
-// NewSdScanner there  when new device detected
 func NewSdScanner(onConnected, onDisconnected func(disk Disk)) *SdScanner {
 	var scanner = SdScanner{
 		Disks:        make([]string, 0),
