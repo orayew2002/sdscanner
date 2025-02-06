@@ -42,17 +42,16 @@ func (d *SdScanner) SetList(list []string) {
 	}
 
 	if len(d.Disks) < len(list) {
-		d.OnConnect(Disk{
-			Path: getDifference(d.Disks, list),
-		})
+		if len(d.Disks) == 0 {
+			d.Disks = list
+			return
+		}
 
+		d.OnConnect(Disk{Path: getDifference(d.Disks, list)})
 		d.Disks = list
 		return
 	}
 
-	d.OnDisconnect(Disk{
-		Path: getDifference(list, d.Disks),
-	})
-
+	d.OnDisconnect(Disk{Path: getDifference(list, d.Disks)})
 	d.Disks = list
 }

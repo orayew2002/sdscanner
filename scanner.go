@@ -2,6 +2,7 @@ package sdscanner
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"slices"
 )
@@ -20,7 +21,8 @@ func checkDrives(mountPaths []string) []string {
 	for _, mountPath := range mountPaths {
 		drives, err := os.ReadDir(mountPath)
 		if err != nil {
-			panic(fmt.Sprintf("failed scan disks"))
+			log.Printf(fmt.Sprintf("failed scan disks"))
+			return list
 		}
 
 		for _, drive := range drives {
