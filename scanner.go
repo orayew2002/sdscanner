@@ -12,7 +12,7 @@ func checkMacDrives() []string {
 }
 
 func checkLinuxDrives() []string {
-	return checkDrives([]string{"/mnt/", "/media/"})
+	return checkDrives([]string{"/mnt/", "/media/", "/dev/"})
 }
 
 func checkDrives(mountPaths []string) []string {
