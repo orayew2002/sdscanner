@@ -25,6 +25,12 @@ func NewSdScanner(onConnected, onDisconnected func(d string)) *SdScanner {
 		OnDisconnect: onDisconnected,
 	}
 
+	list, err := listBlockDevices()
+	if err != nil {
+		panic(err.Error())
+	}
+
+	scanner.Disks = list
 	return scanner
 }
 

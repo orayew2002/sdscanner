@@ -7,6 +7,8 @@ import (
 )
 
 func main() {
+	fmt.Println("service started working")
+
 	sd := sdscanner.NewSdScanner(func(d string) {
 		fmt.Println("mount", d)
 	}, func(d string) {
