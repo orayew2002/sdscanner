@@ -34,6 +34,10 @@ func NewSdScanner(onConnected, onDisconnected func(d string)) *SdScanner {
 	return scanner
 }
 
+func (d *SdScanner) RRun() {
+	d.run()
+}
+
 func (d *SdScanner) Run() {
 	ticker := time.NewTicker(1 * time.Second)
 	defer ticker.Stop()
